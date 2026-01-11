@@ -15,31 +15,31 @@ app.use(express.json());
 app.get('/api/products', async (req, res) => {
     const result = await product.getProducts();
     res
-    .status(result.status)
-    .json(result.status === 200 ? result.data : result.message);
+        .status(result.status)
+        .json(result.status === 200 ? result.data : result.message);
 });
 
 app.get('/api/products/:id', async (req, res) => {
     const result = await product.getProductById(req.params.id);
     res
-    .status(result.status)
-    .json(result.status === 200 ? result.data : result.message);
+        .status(result.status)
+        .json(result.status === 200 ? result.data : result.message);
 });
 
 // Endopoint para agregar un producto al carrito
 app.post('/api/products', async (req, res) => {
     const result = await product.addProduct(req.body);
     res
-    .status(result.status)
-    .json(result.status === 200 ? result.data : result.message);
+        .status(result.status)
+        .json(result.status === 200 ? result.data : result.message);
 });
 
 // Endpoint para actualizar un producto
 app.put('/api/products/:id', async (req, res) => {
     const result = await product.updateProduct(req.params.id, req.body);
     res
-    .status(result.status)
-    .json(result.status === 200 ? result.data : result.message);
+        .status(result.status)
+        .json(result.status === 200 ? result.data : result.message);
 });
 
 
@@ -47,18 +47,36 @@ app.put('/api/products/:id', async (req, res) => {
 app.delete('/api/products/:id', async (req, res) => {
     const result = await product.deleteProduct(req.params.id);
     res
-    .status(result.status)
-    .json(result.status === 200 ? result.data : result.message);
+        .status(result.status)
+        .json(result.status === 200 ? result.data : result.message);
 });
 
 
 
 // Endpoint para crear un carrito
 app.post('/api/carts', async (req, res) => {
-    const result = await cart.createCart(); 
+    const result = await cart.createCart();
+    res
+        .status(result.status)
+        .json(result.status === 200 ? result.data : result.message);
+});
 
+// Endpoint para obtener un carrito
+app.get('/api/carts/:cid', async (req, res) => {
+    const result = await cart.getProductsFromCart(req.params.cid);
+    res
+        .status(result.status)
+        .json(result.status === 200 ? result.data : result.message);
+});
 
-    
+// Endpoint para agregar un producto al carrito
+app.post('/api/carts/:cid/products/:pid', async (req, res) => {
+    const result = await cart.addProductToCart(req.params.cid, req.params.pid);
+    res
+        .status(result.status)
+        .json(result.status === 200 ? result.data : result.message);
+});
+
 
 app.listen(PORT, () => {
     console.log(`El servidor está corriendo en http://localhost:${PORT}`);
