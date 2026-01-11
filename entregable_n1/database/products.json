@@ -1,62 +1,55 @@
 [
     {
+        "id": 1,
         "title": "Auriculares Bluetooth",
         "description": "Auriculares inalámbricos con cancelación de ruido y micrófono integrado.",
         "price": 18500,
+        "status": true,
         "thumbnail": "/images/auriculares_bluetooth.jpg",
         "code": "AUR-BT-001",
+        "category": "Computación",
         "stock": 25
     },
     {
+        "id": 2,
         "title": "Teclado Mecánico",
         "description": "Teclado mecánico RGB con switches azules y conexión USB.",
         "price": 32000,
+        "status": true,
         "thumbnail": "/images/teclado_mecanico.jpg",
         "code": "TEC-MEC-002",
+        "category": "Computación",
         "stock": 15
     },
     {
+        "id": 3,
         "title": "Mouse Gamer",
         "description": "Mouse gamer ergonómico con sensor óptico de alta precisión.",
         "price": 14500,
+        "status": true,
         "thumbnail": "/images/mouse_gamer.jpg",
         "code": "MOU-GAM-003",
+        "category": "Computación",
         "stock": 40
     },
     {
+        "id": 4,
         "title": "Monitor LED 24 pulgadas",
         "description": "Monitor Full HD de 24 pulgadas con panel IPS y 75Hz.",
         "price": 120000,
+        "status": true,
         "thumbnail": "/images/monitor_24.jpg",
         "code": "MON-24-004",
         "stock": 10
     },
     {
+        "id": 5,
         "title": "Disco SSD 1TB",
         "description": "Disco sólido SSD de 1TB con interfaz SATA III.",
         "price": 98000,
+        "status": true,
         "thumbnail": "/images/ssd_1tb.jpg",
         "code": "SSD-1TB-005",
         "stock": 18
     }
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
