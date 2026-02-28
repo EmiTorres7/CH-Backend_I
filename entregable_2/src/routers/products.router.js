@@ -1,8 +1,4 @@
-import { Router } from "express";
-const router = Router();
-
-router.get('/', (req, res) => {
-    res.send('Products funcionando');
-});
+import express from "express";
+const router = express.Router();
 
 export default router;
