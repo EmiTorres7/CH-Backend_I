@@ -122,12 +122,12 @@ class ProductManager {
         const validKeys = [
             "title",
             "description",
-            "price",
-            "thumbnails",
             "code",
+            "price",
+            "status",
             "stock",
             "category",
-            "status",
+            "thumbnails",
         ];
 
         try {

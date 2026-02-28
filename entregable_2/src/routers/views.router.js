@@ -13,7 +13,7 @@ const productManager = new ProductManager('./src/data/products.json');
 viewsRouter.get('/', async (req, res) => {
     try {
         const products = await productManager.getProducts();
-        res.render('home', { products });
+        res.render('home', { products: products.data });
     } catch (error) {
         console.error("Error al obtener los productos para la vista home.", error);
         res.status(500).send({ message: error.message });
