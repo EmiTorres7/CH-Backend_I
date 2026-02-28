@@ -1,0 +1,17 @@
+{
+  "name": "entregable_2",
+  "version": "1.0.0",
+  "description": "proyecto n2",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/app.js"
+  },
+  "author": "Emiliana",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-handlebars": "^8.0.3",
+    "socket.io": "^4.8.3"
+  }
+}
