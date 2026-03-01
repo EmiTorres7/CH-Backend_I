@@ -54,6 +54,19 @@ io.on('connection', (socket) => {
     });
 });
 
+//eliminar el producto del servidor y emitir el evento a los clientes conectados
+io.on('connection', (socket) => {
+    console.log('Nuevo cliente conectado');
+    socket.on('deleteProduct', async (productId) => {
+        try {
+            await productManager.deleteProduct(productId);  
+            console.log('Producto eliminado:', productId);
+            io.emit('productDeleted', productId); // Emitir a todos los clientes conectados
+        } catch (error) {
+            console.error('Error al eliminar producto:', error);
+        }   
+    });
+});
 
 
 //iniciamos el servidor y escuchamos en el puerto definido

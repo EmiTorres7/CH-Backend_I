@@ -20,7 +20,10 @@
     <h2>Lista de productos</h2>
     <ul id="productsList">
         {{#each products}}
-        <li>{{this.title}} - ${{this.price}}</li>
+        <li data-id="{{this.id}}">{{this.title}} - ${{this.price}}
+            <button onclick="deleteProduct('{{this.id}}')">Eliminar</button>
+        </li>
+
         {{/each}}
     </ul>
 </div>
