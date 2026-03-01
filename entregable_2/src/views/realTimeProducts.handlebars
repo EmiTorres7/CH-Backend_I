@@ -1,7 +1,24 @@
 <div>
     <h1>Real Time Products</h1>
+
+    <form action="" id="formNewProduct">
+        <input type="text" name="title" placeholder="ingrese el título" required>
+        <input type="text" name="description" placeholder="ingrese la descripción" required>
+        <input type="text" name="code" placeholder="ingrese el código del producto" required>
+        <input type="number" name="price" placeholder="ingrese el precio" required>
+        <input type="number" name="stock" placeholder="ingrese el stock disponible" required>
+        <input type="text" name="category" placeholder="ingrese la categoría del producto" required>
+        <input type="text" name="thumbnails" placeholder="ingrese la URL de la imagen">
+        <div>
+            <input type="radio" id="statusTrue" name="status" value="true" checked>
+            <label for="statusTrue">Disponible</label>
+            <input type="radio" id="statusFalse" name="status" value="false">
+            <label for="statusFalse">No disponible</label>
+        </div>
+        <button type="submit">Agregar producto</button>
+    </form>
     <h2>Lista de productos</h2>
-    <ul>
+    <ul id="productsList">
         {{#each products}}
         <li>{{this.title}} - ${{this.price}}</li>
         {{/each}}
