@@ -20,5 +20,15 @@ viewsRouter.get('/', async (req, res) => {
     }
 });
 
+
+viewsRouter.get('/realtimeproducts', async (req, res) => {
+    try {
+        const products = await productManager.getProducts();
+        res.render('realTimeProducts', { products: products.data });
+    } catch (error) {
+        console.error("Error al obtener los productos para la vista home.", error);
+        res.status(500).send({ message: error.message });
+    }
+});
 //hacemos un export default para importar este views router en el app.js y usarlo como middleware para las rutas relacionadas a las vistas.
 export default viewsRouter;

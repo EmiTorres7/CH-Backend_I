@@ -28,7 +28,7 @@ const PORT = 8080;
 //habilitamos apra poder recibir json
 app.use(express.json());
 //habilitamos la carpeta public para archivos estaticos
-app.use(express.static('/public'));
+app.use(express.static('public'));
 //habilitamos para recibir datos de formularios
 app.use(express.urlencoded({ extended: true }));
 
@@ -38,10 +38,17 @@ app.use('/api/carts', cartsRouter);
 app.use('/', viewsRouter);
 
 
+//WEBSOCKETS
+io.on('connection', (socket) => {
+    console.log('Nuevo cliente conectado');
+});
+
+
 //iniciamos el servidor y escuchamos en el puerto definido
 server.listen(PORT, () => {
     console.log(`Servidor escuchando en el puerto: http://localhost:${PORT}`);
 });
+
 
 
 
