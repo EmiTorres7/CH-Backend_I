@@ -22,6 +22,8 @@ connectMongoDB();
 app.use("/api/products", productsRouter)
 
 
+
+
 app.listen(PORT, () => {
     console.log(`El servidor está corriendo en ${PORT}`)
 })
