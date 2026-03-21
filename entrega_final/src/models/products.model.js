@@ -46,7 +46,7 @@ const productSchema = new mongoose.Schema({
         trim: true,
         default: "product.jpg"
     }
-})
+}, {timestamps: true}); //que agregue por defecto cada vez que añada un documento de algún producto, agregue los campos de creación y de edición de ese documento
 
 const Product = mongoose.model("Product", productSchema);
 

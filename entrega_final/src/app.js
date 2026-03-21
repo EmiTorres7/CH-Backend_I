@@ -7,6 +7,9 @@ dotenv.config();
 const app = express();
 const PORT = 8080;
 
+//habilitamos apra poder recibir json. configuración para poder recibir json.
+app.use(express.json());
+
 const connectMongoDB = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URI)
