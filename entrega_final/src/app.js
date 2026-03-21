@@ -8,12 +8,12 @@ dotenv.config();
 const app = express();
 const PORT = 8080;
 
-const connectMongoDB = async() => {
+const connectMongoDB = async () => {
     try {
         await mongoose.connect(process.env.MONGOdb_URI)
         console.log("Conectado con MongoDB")
     } catch (error) {
-        console.log("Error al conectar con MongoDB: ", error)        
+        console.log("Error al conectar con MongoDB: ", error)
     }
 }
 
@@ -23,7 +23,7 @@ connectMongoDB();
 app.use("/api/products", productsRouter)
 
 
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
     console.log(`El servidor está corriendo en ${PORT}`)
 })
 

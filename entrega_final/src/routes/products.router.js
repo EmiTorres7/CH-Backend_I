@@ -3,8 +3,9 @@ import Product from "../models/products.model.js";
 
 const productsRouter = express.Router()
 
-productsRouter.get("/", async (requestAnimationFrame, res) => {
+productsRouter.get("/", async (req, res) => {
     try {
+        const products = await Product.find();
         res.status(200)
             .json({ status: "success", products: products })
     } catch (error) {
