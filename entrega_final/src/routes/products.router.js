@@ -52,11 +52,10 @@ productsRouter.delete("/:pid", async (req, res) => {
         const deletedProduct = await Product.findByIdAndDelete(pid);
         if (!deletedProduct) return res.status(404).json({ status: "error", message: "Producto no encontrado" });
         res.status(200).json({ status: "succes", payload: deletedProduct });
-        
+
     } catch (error) {
         res.status(500).json({ status: "error", message: "Error al eliminar un producto", error })
     }
 })
-
 
 export default productsRouter;

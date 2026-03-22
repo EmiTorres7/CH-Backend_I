@@ -2,6 +2,8 @@ import express from "express";
 import productsRouter from "./routes/products.router.js";
 import dotenv from "dotenv";
 import connectMongoDB from "./config/mongoose.config.js";
+import cartRouter from "./routes/carts.route.js";
+
 
 //inicializamos las variables de entorno
 dotenv.config();
@@ -15,6 +17,7 @@ connectMongoDB();
 
 //Endpoints
 app.use("/api/products", productsRouter)
+app.use("/api/carts", cartRouter);
 
 app.listen(PORT, () => {
     console.log(`El servidor está corriendo en ${PORT}`)
