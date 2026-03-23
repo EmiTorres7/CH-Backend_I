@@ -32,7 +32,7 @@ cartRouter.post("/:cid/product/:pid", async (req, res) => {
 
         //verificar si el producto que quiero insertar existe dentro del carrito
         const productoIndex = cart.products.findIndex((p) => p.product == pid); //en caso que no exista nos devuelve -1
-        if(productoIndex !== -1) {
+        if (productoIndex !== -1) {
             //incrementar la cantidad del producto en el carrito
             cart.products[productoIndex].quantity += quantity
         } else {
