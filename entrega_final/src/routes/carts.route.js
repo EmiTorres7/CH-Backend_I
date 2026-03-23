@@ -14,4 +14,20 @@ cartRouter.post("/", async (req, res) => {
     }
 })
 
+//endpoint para agregar un producto al carrito
+cartRouter.post("/:cid/product/:pid", async (req, res) => {
+    try {
+        //definir los valores para manipular el contenido, recibir/capturar el id del carrito (cid) y el id (pid) del producto de la url
+        const { cid, pid } = req.params;
+        const { quantity } = req.body;
+
+        //guardar actualizaciones
+        const updatedCart = await Cart.findOneAndUpdate(cid, { $push: { products: { product: pid, quantity: quantity } } }, { new: true, runValidators: true });
+        res.status(200).json({ status: "success", payload: updatedCart });
+    } catch (error) {
+        res.status(500).json({ status: "error", message: "Error al agregar un producto al carrito" })
+    }
+})
+
+
 export default cartRouter;
