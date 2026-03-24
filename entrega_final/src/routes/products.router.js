@@ -3,11 +3,13 @@ import Product from "../models/products.model.js";
 
 const productsRouter = express.Router()
 
+//endpoint para traer los productos
 productsRouter.get("/", async (req, res) => {
     try {
-        const products = await Product.find().lean();
-        res.status(200)
-            .json({ status: "success", payload: products })
+        const data = await Product.paginate({}, { limit:2, page:1 });   
+        const products = data.docs;
+        delete data.docs;
+        res.status(200).json({ status: "success", payload: products })
     } catch (error) {
         res.status(500).json({ status: "error", message: "Error al recuperar los productos" })
     }

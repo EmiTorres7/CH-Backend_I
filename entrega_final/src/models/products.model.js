@@ -1,5 +1,6 @@
 import { kMaxLength } from "buffer";
 import mongoose from "mongoose";
+import paginate from "mongoose-paginate-v2";
 import { type } from "os";
 import { title } from "process";
 
@@ -48,6 +49,9 @@ const productSchema = new mongoose.Schema({
         default: "product.jpg"
     }
 }, { timestamps: true }); //que agregue por defecto cada vez que añada un documento de algún producto, agregue los campos de creación y de edición de ese documento
+
+//plugin para paginación
+productSchema.plugin(paginate);
 
 //Indexación - Optimización de consultas: mejora la eficiencia de cómo nos llega esa info
 //comprobar que ciertos campos tengan un valor único, en el caso de que exista va a rechazar esa solicitud
