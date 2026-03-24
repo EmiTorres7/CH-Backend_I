@@ -54,7 +54,7 @@ cartRouter.post("/:cid/product/:pid", async (req, res) => {
 cartRouter.get("/:cid", async (req, res) => {
     try {
         const cid = req.params.cid;
-        const cart = await Cart.findById(cid); //si no encuentra el id no nos va a devovler nada en la variable cart
+        const cart = await Cart.findById(cid).populate("products.product"); //si no encuentra el id no nos va a devovler nada en la variable cart
         if (!cart) return res.status(404).json({ status: "error", message: "Carrito no encontrado" })
         res.status(200).json({ status: "success", payload: cart.products });
     } catch (error) {
