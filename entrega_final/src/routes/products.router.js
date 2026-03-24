@@ -6,7 +6,9 @@ const productsRouter = express.Router()
 //endpoint para traer los productos
 productsRouter.get("/", async (req, res) => {
     try {
-        const data = await Product.paginate({}, { limit: 2, page: 1 });
+        //capturar los queryparams de la consulta
+        const { limit = 10, page = 1 } = req.query;
+        const data = await Product.paginate({}, { limit, page });
         const products = data.docs;
         delete data.docs;
         res.status(200).json({ status: "success", payload: products, ...data })
