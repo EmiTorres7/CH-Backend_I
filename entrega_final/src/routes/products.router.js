@@ -6,10 +6,10 @@ const productsRouter = express.Router()
 //endpoint para traer los productos
 productsRouter.get("/", async (req, res) => {
     try {
-        const data = await Product.paginate({}, { limit:2, page:1 });   
+        const data = await Product.paginate({}, { limit: 2, page: 1 });
         const products = data.docs;
         delete data.docs;
-        res.status(200).json({ status: "success", payload: products })
+        res.status(200).json({ status: "success", payload: products, ...data })
     } catch (error) {
         res.status(500).json({ status: "error", message: "Error al recuperar los productos" })
     }
